@@ -186,7 +186,7 @@ main {
   display:none;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 650px) {
   .card {
     flex-direction: column;
     min-height:500px;
@@ -218,6 +218,7 @@ main {
 
   .share-menu-mobile{
     display: none;
+    transition: all 1s ease-in-out;
   }
   .share-menu-mobile.active {
     position: absolute;
@@ -226,17 +227,17 @@ main {
     display: flex;
     left:0;
     bottom: 0;
-    height: 100%;
     border-radius: 0 0 10px 10px;
     gap:20px;
     min-height: 50px;
     align-items: center;
     padding:2rem 0rem 2.5rem 2.3rem;
+    transition: all 1s ease-in-out;
   }
 
   .share-menu-mobile p {
     color: var(--l-g-blue);
-    font-size: 1.2rem;
+    font-size: 1rem;
     letter-spacing: 5px;
   }
   .share-menu-mobile a {
@@ -245,7 +246,7 @@ main {
   }
 
   .share-menu-mobile a i {
-    font-size: 30px;
+    font-size: 25px;
     cursor: pointer;
   }
 }
