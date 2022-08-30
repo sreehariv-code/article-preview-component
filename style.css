@@ -28,9 +28,10 @@ main {
   width: clamp(365px, 75%, 700px);
   display: flex;
   /* background:red; */
-  overflow: hidden;
+  /* overflow: hidden; */
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  position: relative;
 }
 
 .image {
@@ -38,13 +39,14 @@ main {
   width: 40%;
   align-items: center;
   justify-content: center;
+  background:url("./images/drawers.jpg");
+  border-radius: 10px 0 0 10px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-clip: center;
 }
 
-.image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+
 .content {
   width: 60%;
   height: 100%;
@@ -126,9 +128,11 @@ main {
     color:var(--l-g-blue);
     align-items: center;
     justify-content: space-between;
-    width:100px;
-    padding:10px 20px;
+    width:150px;
+    padding:15px 22px;
     border-radius:5px;
-    left:-5rem;
-    top:-2rem;
+    top:0;
+    left:0;
+    transform:translate(-40%,-110%);
 }
+
