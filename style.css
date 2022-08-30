@@ -24,12 +24,13 @@ main {
 }
 
 .card {
-  max-height: 500px;
+  /* max-height: 500px; */
   width: clamp(365px, 75%, 700px);
   display: flex;
   /* background:red; */
   /* overflow: hidden; */
   border-radius: 10px;
+  margin: 0 2rem;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   position: relative;
 }
@@ -39,13 +40,12 @@ main {
   width: 40%;
   align-items: center;
   justify-content: center;
-  background:url("./images/drawers.jpg");
+  background: url("./images/drawers.jpg");
   border-radius: 10px 0 0 10px;
   background-repeat: no-repeat;
   background-size: cover;
   background-clip: center;
 }
-
 
 .content {
   width: 60%;
@@ -64,7 +64,7 @@ main {
   margin-top: 1rem;
   color: var(--v-d-g-blue);
   font-size: 1rem;
-  line-height: 23px;
+  line-height: 20px;
 }
 
 .profile {
@@ -75,31 +75,29 @@ main {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding:0 4.6rem 1.7rem 32px;
+  padding: 0 4.6rem 2.9rem 32px;
 }
 
 .profile .details {
   display: flex;
-  gap:20px;
+  gap: 20px;
 }
 
 .profile-img {
-  width: 45px;
-  height: 45px;
+  width: 35px;
+  height: 35px;
   overflow: hidden;
   object-fit: cover;
   border-radius: 50%;
 }
 
-
-
 .profile .details .name {
-    color:var(--d-d-blue);
+  color: var(--d-d-blue);
 }
-.profile .details .name span{
-    font-size:1.2rem;
-    font-weight: 700;
-    color:var(--v-d-g-blue);
+.profile .details .name span {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--v-d-g-blue);
 }
 
 .profile-img img {
@@ -107,32 +105,147 @@ main {
   height: 100%;
 }
 
-.share-feature{
+.share-feature {
+  position: relative;
+  display: flex;
+}
+
+.share-feature .share-btn {
+  background: var(--d-d-blue);
+  padding: 10px;
+  border-radius: 50%;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  color: var(--l-g-blue);
+  z-index: 1;
+  font-size: 15px;
+}
+
+.share-feature .share-menu {
+  display: none;
+}
+
+.share-feature .share-menu.active {
+  background: var(--v-d-g-blue);
+  display: flex;
+  position: absolute;
+  color: var(--l-g-blue);
+  align-items: center;
+  justify-content: space-between;
+  min-height: 54px;
+  min-width: 220px;
+  /* padding: 22px; */
+  border-radius: 5px;
+  padding: 0 22px;
+  top: 0;
+  left: 0;
+  transform: translate(-44%, -82px);
+}
+.share-feature .share-menu a {
+  text-decoration: none;
+  color: var(--l-g-blue);
+}
+
+.share-feature .share-menu a i {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+#facebook:hover {
+  color: #4267b2;
+}
+
+#twitter:hover {
+  color: #1da1f2;
+}
+
+#pinterest:hover {
+  color: #e60023;
+}
+
+.share-menu p {
+  color: var(--l-g-blue);
+  font-size: 0.9rem;
+  letter-spacing: 5px;
+}
+
+.share-menu::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 20px solid var(--v-d-g-blue);
+  bottom: 0;
+  left: 0;
+  transform: translate(90px, 19px);
+}
+
+.share-menu-mobile{
+  display:none;
+}
+
+@media screen and (max-width: 700px) {
+  .card {
+    flex-direction: column;
+    min-height:500px;
+  }
+  .image {
+    min-height: 200px;
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+  }
+  .content {
+    width: 100%;
+  }
+
+  .profile {
+    width: 100%;
     position: relative;
-    display: flex;
-}
+    padding: 0;
+    padding:2.5rem 2rem 2.5rem 2.3rem;
+    margin-top:3rem;
+  }
 
-.share-feature .share-btn{
-    background:var(--d-d-blue);
-    padding:12px;
-    border-radius:50%;
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-    cursor:pointer;
-    color: var(--l-g-blue);
-}
+  .share-feature .share-menu,
+  .share-feature .share-menu.active {
+    display: none;
+  }
+  .share-feature .share-menu::before {
+    display: none;
+  }
 
-.share-feature .share-menu{
-    background:var(--v-d-g-blue);
-    display:flex;
+  .share-menu-mobile{
+    display: none;
+  }
+  .share-menu-mobile.active {
     position: absolute;
-    color:var(--l-g-blue);
-    align-items: center;
-    justify-content: space-between;
-    width:150px;
-    padding:15px 22px;
-    border-radius:5px;
-    top:0;
+    width: 100%;
+    background: var(--v-d-g-blue);
+    display: flex;
     left:0;
-    transform:translate(-40%,-110%);
-}
+    bottom: 0;
+    height: 100%;
+    border-radius: 0 0 10px 10px;
+    gap:20px;
+    min-height: 50px;
+    align-items: center;
+    padding:2rem 0rem 2.5rem 2.3rem;
+  }
 
+  .share-menu-mobile p {
+    color: var(--l-g-blue);
+    font-size: 1.2rem;
+    letter-spacing: 5px;
+  }
+  .share-menu-mobile a {
+    text-decoration: none;
+    color: var(--l-g-blue);
+  }
+
+  .share-menu-mobile a i {
+    font-size: 30px;
+    cursor: pointer;
+  }
+}
